@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE psi_conf [
+<!ELEMENT psi_conf (variable*,name, value, description)>
+<!ELEMENT variable (name, value, description)>
+<!ELEMENT name  (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT description  (#PCDATA)>
+]>
+<psi_conf>
+    <variable>
+    <name>AuthService</name>
+    <value>http://localhost/DFetch/WSDL/AuthService.wsdl.php</value>
+    <description>Full URL for the WSDL Authentication SOAP Service of the DRL.</description>
+  </variable>
+  <variable>
+    <name>JobsService</name>
+    <value>http://localhost/DFetch/WSDL/JobsService.wsdl.php</value>
+    <description>Full URL for the WSDL/SOAP Jobs Service of the DRL.</description>
+  </variable>
+  <variable>
+    <name>UsersService</name>
+    <value>http://localhost/DFetch/WSDL/UsersService.wsdl.php</value>
+    <description>Full URL for the WSDL/SOAP User Service of the DRL.</description>
+  </variable>
+  <variable>
+    <name>PostageStampService</name>
+    <value>http://localhost/DFetch/WSDL/PostageStampService.wsdl.php</value>
+    <description>Full URL for the WSDL/SOAP Postage Stamp Service of the DRL.</description>
+  </variable>
+  <variable>
+    <name>VOPlotService</name>
+    <value>http://web01.psps.ifa.hawaii.edu/cgi-bin/voplot/loadjvt.pl</value>
+    <description>Full URL to a cgi script that can plot from a VOTable file.</description>
+  </variable>
+  <variable>
+    <name>helpEmail</name>
+    <value>pspshelp@ifa.hawaii.edu</value>
+    <description>
+      Email used for technical support.
+    </description>
+  </variable>
+  <variable>
+        <name>PSPSQueryExamplesURL</name>
+        <!-- <value>http://web01.psps.ifa.hawaii.edu/VODb/pspsPlugins.xml</value> -->
+        <value>conf/psi_query_examples.xml</value>
+        <description>PSPS Plugins URL is needed for query examples within the PSI Help Class.</description>
+    </variable>
+  <variable>
+    <name>MopsSchemaURL</name>
+    <value>http://mopshq2.ifa.hawaii.edu/schema/index.html</value>
+    <description>Full URL to MOPS Schema information.</description>
+  </variable>
+  <variable>
+    <name>PostageStampStatusURL</name>
+    <value>http://ippc30/pstamp-work/server_status/status.html</value>
+    <description>Full URL to the internal IPP Postage Stamp Status page where all requests can be viewed.</description>
+  </variable>
+  <variable>
+    <name>PostageStampNoticeURL</name>
+    <value>http://ippc30/pstamp-work/server_status/status.html</value>
+    <description>Full URL to the internal IPP Postage Stamp Status page where all requests can be viewed.</description>
+  </variable>
+  <variable>
+    <name>NewsWikiURL</name>
+    <value>http://psps.ifa.hawaii.edu/psps-trac/wiki/PSPSNews</value>
+    <description>Full URL to the PSI News Wiki.</description>
+  </variable>
+  <variable>
+    <name>HelpWikiURL</name>
+    <value>http://psps.ifa.hawaii.edu/psps-trac/wiki/PSIHelp</value>
+    <description>PSI Help Wiki page.</description>
+  </variable>
+  <variable>
+    <name>MainWikiURL</name>
+    <value>http://psps.ifa.hawaii.edu/psps-trac</value>
+    <description>PSI Help Wiki page.</description>
+  </variable>
+  <variable>
+    <name>StiltsJar</name>
+    <value>/usr/local/bin/stilts.jar</value>
+    <description>Location fo the stilts jar file needed for quick downloads.</description>
+  </variable>
+  <variable>
+    <name>DefaultPSPSSchemaGroup</name>
+    <value>PS1_SCHEMA</value>
+    <description>
+        This is name of the schema group that PSI needs to load things like the main schema, surveys, and filters.
+       This is mainly needed for the PSPSSchemaClass session instance.
+    </description>
+  </variable>
+  <variable>
+    <name>DefaultPSPSSchema</name>
+    <value>PANSTARRS_3PI</value>
+    <description>
+        This is name of the schema that PSI needs to load things like the main schema, surveys, and filters.
+        This is mainly needed for the PSPSSchemaClass session instance.
+    </description>
+  </variable>
+    <variable>
+        <name>DefaultMopsSchemaGroup</name>
+        <value>MOPS</value>
+        <description>Default schema group for MOPS functions.</description>
+    </variable>
+    <variable>
+        <name>DefaultMopsSchema</name>
+        <value>psmops_ps1_v6</value>
+        <description>Default MOPS schema context that serves as the default MOPS catalog selection.</description>
+    </variable>
+    <variable>
+        <name>DefaultMopsExportSchema</name>
+        <value>export</value>
+        <description>Default MOPS Export schema context.</description>
+    </variable>
+    <variable>
+    <name>DefaultMyDBSchemaGroup</name>
+    <value>MyDB</value>
+    <description>
+        This is name of the schema group that is for personal databases (CasJobs MyDB).
+    </description>
+  </variable>
+  <variable>
+    <name>DefaultMyDBSchema</name>
+    <value>MyDB</value>
+    <description>
+        This is name of the scheme for the personal database of users.
+    </description>
+  </variable>
+</psi_conf>

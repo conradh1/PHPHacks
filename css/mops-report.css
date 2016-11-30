@@ -1,0 +1,82 @@
+.menubar {
+    height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px;
+    color:#000000;
+    background:#FFFFFF;
+    font-size: 16px;
+}
+
+body { color: #000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 11px; margin: 0; }
+table { color: #000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 11px; margin: 0}
+td { color: #000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 11px; margin: 0}
+
+td.htable { width: 3.5em; }
+td.htable1 { width: 3.5em; background-color: #EEEEEE; }
+td.htable2 { width: 3.5em; }
+
+.main { margin-left: 8px; margin-top: 40px; }
+
+ a { text-decoration: none; color: #36C; }
+ a:hover { text-decoration: underline; }
+ a:active { color: #666666; text-decoration: none; }
+ .listing { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 11px; }
+ .grayListing { color: #76797c; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 12px; }
+ H1 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 24px; font-weight: bold; color: black; }
+ .header { background-color: #E5E5E5; margin-top: 5px; margin-bottom: 5px; }
+ .darkheader { background-color: #919599; margin-top: 5px; margin-bottom: 5px; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 11px; color: #FFFFFF; }
+ .darkheaderreallylarge { background-color: #818588; margin-top: 5px; margin-bottom: 5px; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 16px; color: #FFFFFF; }
+ .darkheaderlarge { background-color: #919599; margin-top: 5px; margin-bottom: 5px; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 14px; color: #FFFFFF; }
+ .verydarkheaderlarge { background-color: #212522; margin-top: 5px; margin-bottom: 5px; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 14px; color: #FFFFFF; }
+ .cancelError { color: #FF0000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 12px; }
+ .grayText { color: #76797c; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; }
+ .attributes { color: #76797c; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; margin-left: 10px; }
+ .boldText { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 11px; }
+ H3 { font: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 12px; font-weight: normal; }
+ H3.header { color: #000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 11px; }
+ H2.header { color: #000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: bold; font-size: 11px; }
+ H3.listing { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 11px; }
+ H3.grayListing { color: #76797c; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 12px; }
+ H4 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 10px; }
+ H4.graylisting { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 11px; color: #76797c; }
+ H4.italiclisting { font: italic 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; }
+ .redlisting { color: #FF0000; font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-weight: normal; font-size: 11px; }
+ td { font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; font-size: 11px; }
+ .divider { font-size: 1px; height: 1px; background-color: #A1A5A9; }
+ LineSpacer { font-size: 1px; height: 1px;}
+ .L10 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 10px; line-height: 13px; }
+ .L10bold { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 10px; font-weight: bold; line-height: 13px; }
+ .L10G { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 10px; color: #868F98; }
+ .L11 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; line-height: 13px; }
+ .L11bold { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; font-weight: bold; line-height: 13px; }
+ .L11G { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; color: #868F98; line-height: 13px; }
+ .L12 { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; }
+ .L12bold { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
+ .L12G { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #868F98; }
+ .L13 { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 15px; }
+ .L14 { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 15px; }
+ .L14bold { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; }
+ .L14G { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #868F98; }
+ .L15 { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 15px; line-height: 16px; }
+ .L16 { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 16px; line-height: 17px; }
+ .L16bold { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; }
+ .L16G { font-family: 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif; font-size: 16px; color: #868F98; }
+ .L18 { font-family: 'Lucida Grande', Helvetica, Verdana, Arial, Helvetica, sans-serif; font-size: 18px; }
+ .L18bold { font-family: 'Lucida Grande', Helvetica, Verdana, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; }
+ .L24 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 24px; }
+ .L24bold { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 24px; font-weight: bold}
+#signin_main { width: 680px; text-align: left; }
+ .signin_top { float: top; width: 680px; display: block; margin-left: 0px; margin-right: 0px; margin-top: 20px; margin-bottom:20px }
+ .signin_left { float: left; width: 400px; display: block; margin: 0px; }
+ .signin_right { float: right; width: 280px; display: block; margin: 0px; }
+ #standalone_main { width: 680px; text-align: left; }
+ .standalone_top { float: top; width: 680px; display: block; margin-left: 0px; margin-right: 0px; margin-top: 20px; margin-bottom:20px }
+ .standalone_left { float: left; width: 280px; display: block; margin: 0px; }
+ .standalone_right { float: right; width: 400px; display: block; margin: 0px; }
+ .dividerline { width: 1px; margin: 0px; padding: 0px; height: 0px; line-height: 1px; background-color: rgb(172,172,172); }
+
+ .H24 { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 24px; color: #E5E5E5; margin-left: 8; margin-top: 8; }
+ .Hsmall { font-family: 'Lucida Grande', Geneva, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; color: #E5E5E5; margin-left: 8; }
+
+ #headimg { position: absolute; top: 0; right: 0; background-color: #000}

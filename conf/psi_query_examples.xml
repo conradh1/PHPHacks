@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE psi_query_examples [
+<!ELEMENT psi_query_examples (section*,query, title, author, shortDescription, longDescription, sql, queue, database)>
+<!ELEMENT section (query*, title, author, shortDescription, longDescription, sql, queue, database)>
+<!ATTLIST section name CDATA #REQUIRED>
+<!ELEMENT query (title, author, shortDescription, longDescription, sql, queue, database)>
+<!ELEMENT title  (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT shortDescription (#PCDATA)>
+<!ELEMENT longDescription (#PCDATA)>
+<!ELEMENT sql (#PCDATA)>
+<!ELEMENT queue (#PCDATA)>
+<!ELEMENT database (#PCDATA)>
+]>
+<psi_query_examples>
+  <section name="PSPS">
+    <!--<query>
+      <title></title>
+      <author></author>
+      <shortDescription></shortDescription>
+      <longDescription></longDescription>
+      <sql></sql>
+      <queue></queue>
+      <database></database>
+    </query> -->
+    <query>
+      <title>Frame Count</title>
+      <author>PSPS</author>
+      <shortDescription>Count frames</shortDescription>
+      <longDescription>Returns counts of frames in each survey for a particular catalog</longDescription>
+      <sql>SELECT Survey.name AS Survey, Survey.description AS Description, COUNT(frameID) AS TotalFrames
+	FROM FrameMeta
+	INNER JOIN Survey ON FrameMeta.surveyID = Survey.surveyID
+	GROUP BY Survey.name, Survey.surveyID, Survey.description
+	ORDER BY Survey.name
+      </sql>
+      <queue>fast</queue>
+      <database>PS1_SAS_15</database>
+    </query>
+    <query>
+      <title>Frame count by filter</title>
+      <author>PSPS</author>
+      <shortDescription>Count frames by filter</shortDescription>
+      <longDescription>Returns counts of frames in each filter for a particular catalog</longDescription>
+      <sql>
+	   SELECT  Filter.filterType AS FilterType, COUNT(frameID) AS TotalFrames
+           FROM FrameMeta
+	   INNER JOIN Filter ON FrameMeta.filterID = Filter.filterID
+	   GROUP BY Filter.filterType, Filter.filterID ORDER BY Filter.filterID
+      </sql>
+      <queue>fast</queue>
+      <database>PS1_SAS_15</database>
+  </query>
+  <query>
+    <title>Stack Count</title>
+    <author>PSPS</author>
+    <shortDescription>Count stacks</shortDescription>
+    <longDescription>Returns counts of stacks in each survey</longDescription>
+    <sql>SELECT Survey.name AS Survey, Survey.description AS Description, COUNT(*) AS TotalStacks
+	  FROM StackMeta
+	  INNER JOIN Survey ON StackMeta.surveyID = Survey.surveyID
+	  GROUP BY Survey.name, Survey.surveyID, Survey.description
+	  ORDER BY Survey.name
+    </sql>
+    <queue>fast</queue>
+    <database>PS1_SAS_15</database>
+  </query>
+  <query>
+    <title>Sky Coverage</title>
+    <author>PSPS</author>
+    <shortDescription>Sky Coverage in Survey</shortDescription>
+    <longDescription>Returns all frames for all filters in a particular catalog</longDescription>
+    <sql>SELECT fm.frameID, fm.raBore, fm.decBore, f.filterID
+FROM Filter f INNER JOIN FrameMeta fm ON f.filterID = fm.filterID
+WHERE f.filterID in (1,2,3,4,5)</sql>
+    <queue>fast</queue>
+    <database>PS1_3PI</database>
+  </query>
+  <query>
+    <title>Box Search</title>
+    <author>Dr. Jim Heasley</author>
+    <shortDescription>Coordinate Box Search</shortDescription>
+    <longDescription>A rectangular search using straight coordinate constraints. This is limited to a 500 limit as an example.  Run in the slow queue if you do not wish to have a limit.</longDescription>
+    <sql>SELECT top 500 objID, ra, dec, cx, cy, cz
+FROM object
+WHERE
+     (ra between 330 and 330.5)
+AND
+     (dec between -1.0 and 0.5)</sql>
+    <queue>fast</queue>
+    <database>PS1_SAS_15</database>
+  </query>
+
+  <query>
+    <title>The Maximum and Minimum Coordinates of a Survey.</title>
+    <author>Conrad Holmberg</author>
+    <shortDescription>The Maximum and Minimum Coordinates of a Survey.</shortDescription>
+    <longDescription>This example queries the max and min of the ra and dec of all Objects</longDescription>
+    <sql>SELECT MAX(ra) as "Max Ra", MAX([dec]) as "Max Dec", Min(ra) as "Min Ra", Min([dec]) as "Min Dec"
+FROM object</sql> 
+    <queue>fast</queue>
+    <database>PS1_SAS_15</database>
+  </query>
+  <query>
+    <title>Box Search with fGetObjFromRectEq function.</title>
+    <author>Dr. Jim Heasley</author>
+    <shortDescription>Box Search with fGetObjFromRectEq function.</shortDescription>
+    <longDescription>The other function is fGetObjFromRectEq(@ra1, @dec1,@ra2,@dec2)) returns a table of objects inside the rectangle defined by two (ra, dec) pairs. This is a variant of fGetObjFromRect (actually calls it) that takes the input parameters in a more intuitive order (ra1, dec1, ra2, dec2). Assumes dec1&lt;dec2. There is no limit on the number of objects returned. </longDescription>
+    <sql>SELECT * into mydb.sasBoxF2Search FROM dbo.fGetObjFromRectEq(330, -1.0, 331, 1.0) </sql>
+    <queue>slow</queue>
+    <database>PS1_SAS_15</database>
+  </query>
+  <query>
+    <title>Cone Search with fGetObjFromRectEq function</title>
+    <author>Dr. Jim Heasley</author>
+    <shortDescription>Cone Search with fGetObjFromRectEq function.</shortDescription>
+    <longDescription>A cone (radial) search of 1. degree radius (@theta) for objects about the target position (@ra, @dec) = (330, 0.0) uses the function fGetNearbyObjEq(@ra, @dec, @theta) All the arguments are in degrees.</longDescription>
+    <sql>SELECT * into mydb.sasConeSearch FROM dbo.fGetNearbyObjEq(330, 0.0, 1.0) </sql>
+    <queue>slow</queue>
+    <database>PS1_SAS_15</database>
+  </query>
+  <query>
+      <title>Color-magnitude and color-color plots</title>
+      <author>Dr. Jim Heasley</author>
+      <shortDescription>Color-magnitude and color-color plots</shortDescription>
+      <longDescription>This query obtains the information for a specific region on the sky to plot a color-magnitude diagram or generate a color-color plot. For this example we will use the SA3 database. The center of this field is at (333.74, 0.35). The query to generate the data for these plots is contained entirely in the object table. For this example, We will make a g vs g-r CMD and a g-r vs r-i color-color diagram. For purposes of the example we will use the magnitudes and colors created from the average properties determined from the individual exposure information. So, we will want go get the attributes gMeanMag, grMeanColor, and riMeanColor from the object table. As a first case, let's query over the entire SAS database (which is small in comparison say to our 3 pi database).</longDescription>
+      <sql>SELECT top 1000 objID, ra, dec, gMeanPSFMag, gMeanPSFMag-rMeanPSFMAg as grmeanpsfmagcolor FROM  object
+     WHERE
+     gMeanPSFMag != -999.
+     AND
+     rMeanPSFMag != -999
+     AND
+     ra BETWEEN 332.74 AND 334.74
+     AND
+     dec BETWEEN -0.65 AND 1.65</sql>
+      <queue>fast</queue>
+      <database>PS1_SAS_15</database>
+  </query>
+  <query>
+      <title>Light curves</title>
+      <author>Dr. Jim Heasley</author>
+      <shortDescription>Light curves</shortDescription>
+      <longDescription>Extract the light curve in the r filter information for all sources in the SA3 database which have more than 10 measurements in this filter. For this query we want to use information from the DetectionFull? view (calibrated magnitudem and time of observation) and from the object table to find those sources that have 10 or more measures in the r band (nr &gt;= 10). </longDescription>
+      <sql>SELECT objID, obsTime, zp into mydb.RLightCurve FROM DetectionFull
+    WHERE
+    filterID = 2
+    AND
+    objID IN (SELECT objID FROM object WHERE nr &gt;= 10)
+    ORDER BY objID, obsTime
+      </sql>
+      <queue>slow</queue>
+      <database>PS1_SAS_15</database>
+    </query>
+   <query>
+     <title>Detections in G Filter</title>
+     <author>Chris Waters</author>
+     <shortDescription>Detections in G Filter</shortDescription>
+     <longDescription>Grab object information in all filters for things that have at least
+one g measurement</longDescription>
+     <sql>
+SELECT o.objID AS objID,
+       o.ra AS ra,
+       o.dec AS dec,
+       o.ng AS ng, o.gMeanPSFMag AS gMag, o.gMeanPSFMagErr AS gErr,
+       o.g20pct as g20, o.g80pct as g80, o.gMeanKronMag as gKron, o.gStackKronMag as gStackKron,
+       o.nr AS nr, o.rMeanPSFMag AS rMag, o.rMeanPSFMagErr AS rErr,
+       o.r20pct as r20, o.r80pct as r80, o.rMeanKronMag as rKron, o.rStackKronMag as rStackKron,
+       o.ni AS ni, o.iMeanPSFMag AS iMag, o.iMeanPSFMagErr AS iErr,
+       o.i20pct as i20, o.i80pct as i80, o.iMeanKronMag as iKron, o.iStackKronMag as iStackKron,
+       o.nz AS nz, o.zMeanPSFMag AS zMag, o.zMeanPSFMagErr AS zErr,
+       o.z20pct as z20, o.z80pct as z80, o.zMeanKronMag as zKron, o.zStackKronMag as zStackKron,
+       o.ny AS ny, o.yMeanPSFMag AS yMag, o.yMeanPSFMagErr AS yErr,
+       o.y20pct as y20, o.y80pct as y80, o.yMeanKronMag as yKron, o.yStackKronMag as yStackKron
+  INTO mydb.SAS8_obj FROM Object AS o
+ WHERE o.ng &gt; 0;
+     </sql>
+     <queue>slow</queue>
+     <database>PS1_SAS_15</database>
+   </query>
+   <query>
+     <title>Join MyDB Objects to PSPS Detections</title>
+     <author>Chris Waters</author>
+     <shortDescription>Join MyDB Objects to PSPS Detections</shortDescription>
+     <longDescription>Match object information to the detections table and pull out all
+g-filter measurements of the objects found in the previous query.  Set
+an unnamed value (it showed up as "Column1") that represents a value
+"isBad" based on the psphot flag value:
+</longDescription>
+     <sql>DECLARE @mask BIGINT
+SET @mask = 4031233464
+SELECT df.objID, df.detectID, df.calMag,df.calMagErr, df.obsTime, df.psfWidMajor,df.psfWidMinor,df.psfTheta, df.psfLikelihood,df.psfCf, df.momentXX,df.momentXY,df.momentYY, (df.infoFlag &amp; @mask), df.sgSep ,
+d.kronFlux,d.kronFluxErr,d.kronRad
+ INTO mydb.SAS8_det2 FROM DetectionFull df
+JOIN Detection d ON (df.objID = d.objID AND df.detectID = d.detectID)
+JOIN MYDB.SAS8_obj mdb ON mdb.objID = df.objID
+WHERE (df.filterID = 1 AND d.filterID = 1);
+     </sql>
+     <queue>slow</queue>
+     <database>PS1_SAS_15</database>
+   </query>
+   <query>
+     <title>Top 1000 Objects with at least one detection in all filters.</title>
+     <author>Heather Flewelling</author>
+     <shortDescription>Top 1000 Objects with at least one detection in all filters.</shortDescription>
+     <longDescription>This query filters out most of the junk (and likely real stuff as well) and returns both single exposure detections and stack detections. This is useful for when you don't want false positives and don't care if you miss some real objects.</longDescription>
+     <sql>select top 1000 * from Object where ng &gt; 0 and nr &gt; 0 and ni &gt; 0 and nz &gt; 0 and ny &gt; 0
+     </sql>
+     <queue>fast</queue>
+     <database>PS1_SAS_15</database>
+   </query>
+  </section>
+  <section name="MyDB">
+    <query>
+      <title>Current size of your Personal Database (MyDB).</title>
+      <author>PSPS</author>
+      <shortDescription>Displays amount of disk space used and reserved.</shortDescription>
+      <longDescription>Executes a stored procedure called sp_spaceused to display the amount of disk space used and reserved.</longDescription>
+      <sql>exec sp_spaceused</sql>
+      <queue>fast</queue>
+      <database>MyDB</database>
+    </query>
+  </section>
+</psi_query_examples>

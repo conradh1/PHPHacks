@@ -1,0 +1,295 @@
+/**
+* default.css
+* PSI style sheet
+*/
+
+html {
+    height:100%;
+}
+
+body {
+    height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px;
+    color:#000000;
+    background:#FFFFFF;
+    text-align: center;
+}
+
+table {
+/*     table-layout:fixed; */
+
+}
+
+table.wide-table {
+    width:1600px;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th {
+    font-family: Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    background:#222222;
+}
+
+h1 {
+    color:#000000;
+}
+
+h2 {
+    color:#000000;
+}
+
+h3 {
+    color:#000000;
+}
+
+.title h3 {
+    color:#222222;
+}
+
+a {
+    color:#0000cc;
+}
+
+a:hover {
+    color:#0000cc;
+}
+
+a:visited {
+    color:#990099;
+}
+
+#topLogo {
+    width:100%;
+    padding:0px;
+    height:73px;
+    color:#FFFFFF;
+    border:#F00 0px solid;
+}
+
+.results {
+    text-align: left;
+}
+
+.results_td {
+    font-size: 10pt;
+}
+
+main {
+    padding:0px;
+    width:100%;
+    height:100%;
+    margin:0px 0%;
+    margin-top:0px;
+    margin-left:0%;
+    padding-top:0px;
+    padding-bottom:0px;
+    border:#000000 1px dotted;
+}
+
+.sidebar {
+    top:0;
+    left:0;
+    width:300px;
+    height:100%;
+    border:#009900 dotted 0px;
+    float:left;
+    margin:0px 0%;
+    padding:0px;
+}
+
+/* These sidebar colors are used by the treeview plugin */
+.sidebar a {
+    text-decoration:none;
+    color:#394A73;
+}
+
+.sidebar a:hover {
+    color:#ffffff;
+    background:#394A73;
+}
+
+a:visited {
+    color:#0000ff;
+}
+
+/*
+.menubar ul {
+    list-style-type: none;
+    list-style-position:outside;
+    padding-left:0px;
+    height: 30px;
+    width: 100%;
+    margin: 0px;
+    color:#cccccc;
+    background:#eee;
+    text-align:center;
+}
+
+.menubar li {
+    color: #999999;
+    float:left;
+    line-height: 28px;
+    font-size: 20px;
+    border:#cccccc dotted 1px;
+    border-bottom-style:none;
+    border-left-style:none;
+    border-top-style:none;
+}
+
+.menubar a {
+    color: #333;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    line-height: 28px;
+    font-size: 20px;
+    float: left;
+    margin-left:0px;
+    border:#cccccc dotted 1px;
+    border-bottom-style:none;
+    border-left-style:none;
+    display: inline;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    line-height: 28px;
+    font-size: 20px;
+    background:#546EA8;
+    color:#000000;
+}
+
+.current {
+    background:#546EA8;
+}
+*/
+
+main.content {
+    padding:0px;
+    width:100%;
+    height:100%;
+    margin-top:0px;
+    margin-left:0%;
+    border:#000000 1px dotted;
+}
+
+.schema_browser_content {
+
+    padding:3px;
+    width:auto;
+    height:auto;
+    margin-top:0px;
+    margin-left:0%;
+    left:300px;
+    border:#000000 0px dotted;
+    font-size: 16px;
+
+}
+
+#content {
+    padding:0px;
+    width:100%;
+    height:85%;
+    margin-top:0px;
+    margin-left:0%;
+    border:#000000 0px dotted;
+}
+
+.content {
+    padding:0px;
+    width:100%;
+    height:85%;
+    margin-top:0px;
+    margin-left:0%;
+    border:#000000 0px dotted;
+}
+
+/* Descriptive text on a page */
+#description {
+    width: 700px; /* needs a set width, for auto-margins */
+    padding:16px;
+    border:#000000 0px dotted;
+    text-align: left;
+    margin: 0 auto; /* auto margins will center */
+}
+
+/* Descriptive text on a page */
+#disclaimer {
+    width: 80%; /* needs a set width, for auto-margins */
+    padding:20px;
+    border:#000000 0px dotted;
+    text-align: left;
+    margin: 0 auto; /* auto margins will center */
+}
+#footer {
+    width:100%;
+/*    height:5%; */
+    height:36px;
+    background:#FFFFFF;
+    color:#000000;
+    padding-top:0px;
+    text-align:center;
+    font-size:16px;
+}
+
+/* Style definition for input errors */
+.inputerror {
+    color: #DD0000;
+}
+
+.outputerror {
+  color: red;
+}
+
+p.disclaimer {
+ font-style:italic;
+ font-size:10px;
+}
+/* Style definition for submit buttons. */
+#submit-button {
+    color: #333;
+    background: #eee;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 2px 6px
+}
+
+/* Style definitions for alternating rows of while/light green for displaying
+   data. */
+.white-row {
+    background: #FFFFFF
+}
+.green-row {
+    background: #F0FFF0
+}
+
+/* Added style for the wiki page */
+table.wiki {
+ border: 2px solid #ccc;
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+table.wiki td { border: 1px solid #ccc;  padding: .1em .25em; }
+
+
+/* Styles for the TracGuideToc wikimacro */
+.wiki-toc {
+ padding: .5em 1em;
+ margin: 0 0 2em 1em;
+ float: right;
+ border: 1px outset #ddc;
+ background: #ffd;
+ font-size: 85%;
+ position: relative;
+}
+.wiki-toc h4 { font-size: 12px; margin: 0 }
+.wiki-toc ul, .wiki-toc ol { list-style: none; padding: 0; margin: 0 }
+.wiki-toc ul ul, .wiki-toc ol ol { padding-left: 1.2em }
+.wiki-toc li { margin: 0; padding: 0 }
+.wiki-toc .active { background: #ff9; position: relative; }
+
